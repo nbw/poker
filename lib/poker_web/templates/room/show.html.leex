@@ -109,7 +109,7 @@
   <form class="form" phx-change="name-input" onsubmit="return false;">
     <div class="input-wrapper input-wrapper-teal">
       <%= text_input :name, :query, placeholder: "name", autofocus: true, "phx-debounce": "30", value: @user_name, class: "input" %>
-      <button class="btn btn-teal" phx-click="create_user">Join</button>
+      <button class="btn btn-teal" phx-click="create_user" phx-value-name="<%= @user_name %>" >Join</button>
     </div>
   </form>
   <div class="share-link">

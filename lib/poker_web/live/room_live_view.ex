@@ -14,8 +14,8 @@ defmodule PokerWeb.RoomLiveView do
     # Subscribe to webhook to:
     # 1. send/broadcast messages
     # 2. receive presence_diff messages
-    PokerWeb.Endpoint.subscribe(topic(room_id))
-    PokerWeb.Endpoint.subscribe(topic_state(room_id))
+    Phoenix.PubSub.subscribe(Poker.PubSub, topic(room_id))
+    Phoenix.PubSub.subscribe(Poker.PubSub, topic_state(room_id))
 
     {:ok,
       assign(socket,
@@ -214,11 +214,11 @@ defmodule PokerWeb.RoomLiveView do
         # (this is so anyone can update the presence object)
         #
         # Issue: memory; not handling unregistering of processes
-        pid = Process.whereis(String.to_atom(room_id))
-              |> case do
-                nil -> Process.register(self(), String.to_atom(room_id))
-                p -> p
-              end
+        Process.whereis(String.to_atom(room_id))
+        |> case do
+          nil -> Process.register(self(), String.to_atom(room_id))
+          p -> p
+        end
 
         Presence.track(
           self(),

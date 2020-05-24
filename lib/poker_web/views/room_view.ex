@@ -1,11 +1,6 @@
 defmodule PokerWeb.RoomView do
   use PokerWeb, :view
 
-  require Integer
-
-  defdelegate odd, to: Integer, as: :odd
-  defdelegate even, to: Integer, as: :even
-
   @doc """
    A user is considered joined if they have a name
   """

@@ -1,0 +1,329 @@
+/* This file is for your main application css. */
+/* @import "./phoenix.css"; */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'Inter', sans-serif, Arial;
+}
+
+a {
+  color: #0288D1;
+
+  &:hover { text-decoration: underline; }
+}
+
+/* Alerts and form errors */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert p {
+  margin-bottom: 0;
+}
+.alert:empty {
+  display: none;
+}
+
+
+/* Custom CSS */
+$max-width: 900px;
+
+#landing {
+  background-color: #0D47A1;
+  h1 {
+    font-size: 5rem;
+    @apply font-bold mb-4 text-white;
+  }
+  .btn {
+    @apply text-lg font-bold p-2;
+  }
+}
+
+section {
+  h1 {
+    @apply text-4xl font-bold pb-2 mb-4;
+    border-bottom: 4px solid black;
+    &:nth-child(1) {
+      border-color: #FBC02D;
+    }
+  }
+  width: $max-width;
+  margin: auto;
+  @apply py-8;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  @apply my-8;
+}
+@screen md {
+  .container {
+    width: $max-width;
+  }
+}
+
+
+.btn {
+  @apply flex-shrink-0 text-base border-4 py-1 px-2 rounded font-bold;
+  &:focus { @apply outline-none; }
+
+  &.btn-teal {
+    @apply bg-teal-500 border-teal-500 text-white;
+    &:hover { @apply bg-teal-700 border-teal-700; }
+  }
+
+  &.btn-red {
+    @apply bg-red-500 border-red-500 text-white;
+    &:hover { @apply bg-red-700 border-red-700; }
+  }
+
+  &.btn-green {
+    @apply bg-green-500 border-green-500 text-white;
+    &:hover { @apply bg-green-700 border-green-700; }
+  }
+
+  &.btn-blue {
+    @apply text-white;
+    background-color: #5DADE2;
+    border-color: #5DADE2;
+    &:hover {
+    background-color: #2874A6;
+    border-color: #2874A6;
+    }
+  }
+}
+
+.input {
+  @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+.input-wrapper {
+  @apply flex items-center border-b border-b-2 py-2;
+  &.input-wrapper-teal { @apply border-teal-500; }
+}
+
+#room {
+}
+
+#header {
+  @apply w-full h-32 p-4 pl-8 align-top;
+  @apply border-b border-b-4;
+
+  border-color: #EC7063;
+
+  .title {
+    @apply text-4xl h-full;
+    a {
+      line-height: 6rem;
+      display: block;
+      vertical-align:middle;
+    }
+  }
+
+  .form {
+    @apply w-full block h-12;
+    input {
+      @apply h-12 text-xl;
+      &:focus { border-bottom: solid 1px #EC7063; }
+    }
+  }
+}
+@screen md {
+  #header {
+    @apply w-7/12 inline-block;
+  }
+}
+
+#controls {
+  @apply w-full inline-block h-32 p-4 pl-8 align-top;
+  @apply border-b border-b-4;
+
+  border-color: #1169C0;
+  .btn { @apply my-8 mx-4 text-lg; }
+}
+@screen md {
+  #controls { @apply w-5/12; }
+}
+
+$card-size: 75px;
+$card-color: #4FB6AC;
+$card-color-hover: #79c7c0;
+$card-color-active: #4FB6AC;
+$cards-bg: #8881E3;
+
+#player {
+  @apply w-full text-center relative h-64 table;
+  background-color: $cards-bg;
+
+  .overlay {
+    @apply absolute z-10 w-full h-full;
+    background-color: rgba(50, 50, 50, 0.31);
+  }
+
+  .centering-container {
+    height: 100%;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+  }
+  .cards {
+    @apply p-8 m-auto absolute z-0;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    height: 150px;
+
+    -webkit-box-shadow: rgba(50, 50, 50, 0.31) 0px 6px 8px 0px;
+    box-shadow: rgba(50, 50, 50, 0.31) 0px 6px 8px 0px;
+    max-width: $max-width;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .card {
+    @apply inline-block m-1 font-bold;
+    background-color: white;
+    border-radius: 5px;
+    width: $card-size;
+    height: $card-size;
+    line-height: $card-size;
+    border: 1px solid $card-color;
+    color: white;
+    background-color: $card-color-hover;
+
+    &:hover {
+      background-color: $card-color-active;
+      color: white;
+    }
+    &.active {
+      background-color: $card-color-active;
+      color: white;
+    }
+    &:focus { @apply outline-none; }
+  }
+}
+
+#results {
+  @apply w-full inline-block align-top;
+  .title {
+    @apply text-xl font-bold pb-2 pl-2 mb-2;
+    border-bottom: 4px solid #F7B246;
+  }
+
+  table.results {
+    td.label {
+      @apply text-right align-top font-bold;
+    }
+    td {
+      @apply px-4 py-2;
+    }
+  }
+  table.scores {
+    td {
+      @apply border px-4 py-2 text-center w-20;
+    }
+  }
+
+  .winner {
+    background-color: #82E0AA;
+    color: white;
+    font-weight: bold;
+  }
+}
+@screen md {
+  #results {
+    @apply w-5/12;
+  }
+}
+
+$score-size: 50px;
+#members {
+  @apply w-full inline-block align-top;
+
+  .title {
+    @apply text-xl font-bold pb-2 pl-2 mb-2;
+    border-bottom: 4px solid #2ECC71;
+  }
+  .member {
+    @apply w-1/2 inline-block;
+    margin: auto -0.25rem auto -0.25rem;
+    padding: 0.5rem;
+    &> * {
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .name {
+      @apply text-base;
+      padding: 0.5rem;
+    }
+    .score {
+      width: $score-size;
+      height: $score-size;
+      line-height: $score-size;
+      border: 1px solid black;
+      font-weight: bold;
+      text-align: center;
+      &.active {
+        background-color: #EC7063;
+        color: white;
+      }
+    }
+  }
+}
+@screen md {
+  #members {
+    @apply w-7/12 list-none;
+  }
+}
+
+
+#name {
+  @apply fixed w-full top-0 left-0 h-full bg-white py-16 z-20;
+  .form {
+    @apply w-full max-w-sm block m-auto;
+  }
+
+  .share-link {
+    @apply text-center my-16 text-sm;
+    h1 {
+      @apply font-bold my-2 text-base;
+    }
+  }
+}
+@screen md {
+  #name .share-link {
+    @apply text-lg;
+    h1 {
+      @apply text-xl;
+    }
+  }
+}

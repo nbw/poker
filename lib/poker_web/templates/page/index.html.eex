@@ -1,0 +1,15 @@
+<div id="landing" class="text-center py-32">
+  <h1>
+    Agile Poker
+  </h1>
+  <%= link "New Room", to: Routes.room_path(@conn, :new), class: "btn btn-red" %>
+</div>
+<section class="row">
+  <div>
+    <h1>Lorem Ipsum</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum sollicitudin consequat. Mauris mattis justo vel pretium rutrum. Nunc dictum in libero efficitur pulvinar. Pellentesque ullamcorper posuere est, nec condimentum libero maximus eu. Curabitur massa lectus, ultricies id auctor non, convallis fermentum ipsum.
+    </p>
+  </div>
+</section>
+

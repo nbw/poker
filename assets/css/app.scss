@@ -61,6 +61,10 @@ $max-width: 900px;
   .btn {
     @apply text-lg font-bold p-2;
   }
+
+  background-image: url("/images/poker-background.png");
+  background-repeat: repeat, repeat;
+  background-size: 250px;
 }
 
 section {

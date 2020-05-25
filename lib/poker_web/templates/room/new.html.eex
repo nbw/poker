@@ -1,0 +1,15 @@
+<div class="min-h-screen p-8" style="background-color: #148F77">
+  <div class="mx-auto p-8 max-w-md bg-white rounded-lg">
+    <h1 class="mb-2 text-center text-xl font-bold">Create Room</h1>
+    <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
+      <div class="input-wrapper input-wrapper-blue">
+        <%= text_input f, :room_name, placeholder: "room name", autofocus: true, class: "input" %>
+        <%= submit "Create Room", class: "btn btn-blue" %>
+      </div>
+    <% end %>
+    <h1 class="mt-8 mb-2 text-center text-xl font-bold">Or Random Room</h1>
+    <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
+      <%= submit "Random Room", class: "btn btn-red block m-auto" %>
+    <% end %>
+  </div>
+</div>

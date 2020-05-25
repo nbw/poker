@@ -128,6 +128,7 @@ section {
 .input-wrapper {
   @apply flex items-center border-b border-b-2 py-2;
   &.input-wrapper-teal { @apply border-teal-500; }
+  &.input-wrapper-blue { @apply border-blue-500; }
 }
 
 #room {
@@ -173,7 +174,8 @@ section {
   #controls { @apply w-5/12; }
 }
 
-$card-size: 75px;
+$card-size: 50px;
+$card-size-md: 75px;
 $card-color: #4FB6AC;
 $card-color-hover: #79c7c0;
 $card-color-active: #4FB6AC;

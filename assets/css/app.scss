@@ -124,14 +124,20 @@ section {
 }
 
 .input {
-  @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
+  @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-0 py-1 px-2 leading-tight;
   &:focus {
     @apply outline-none;
   }
 }
 
+@screen md {
+  .input {
+    @apply mr-3;
+  }
+}
+
 .input-wrapper {
-  @apply flex items-center border-b border-b-2 py-2;
+  @apply flex items-center border-b border-b-2 py-2 mx-2;
   &.input-wrapper-teal { @apply border-teal-500; }
   &.input-wrapper-blue { @apply border-blue-500; }
 }
@@ -143,7 +149,7 @@ section {
   @apply w-full p-0 pl-8 align-top;
   @apply border-b border-b-4;
 
-  height: 8rem;
+  height: 7rem;
   border-color: #EC7063;
 
   .title {
@@ -166,7 +172,7 @@ section {
 @screen md {
   #header {
     @apply p-4;
-    height: 7rem;
+    height: 8rem;
     .title {
       @apply text-2xl h-full;
     }
@@ -187,7 +193,8 @@ section {
 }
 
 $card-size: 50px;
-$card-size-mobile: 60px;
+$card-size-mobile-w: 25%;
+$card-size-mobile-h: 30%;
 $card-size-md: 75px;
 $card-color: #4FB6AC;
 $card-color-hover: #79c7c0;
@@ -233,9 +240,9 @@ $cards-bg: #8881E3;
     @apply inline-block m-1 font-bold;
     background-color: white;
     border-radius: 5px;
-    width: $card-size-mobile*2;
-    height: $card-size-mobile;
-    line-height: $card-size-mobile;
+    width: $card-size-mobile-w;
+    height: $card-size-mobile-h;
+    line-height: $card-size-mobile-h;
     border: 1px solid $card-color;
     color: white;
     background-color: $card-color-hover;
@@ -305,7 +312,7 @@ $cards-bg: #8881E3;
 }
 
 $score-size: 50px;
-$score-size-mobile: 25px;
+$score-size-mobile: 20px;
 #members {
   @apply w-1/2 inline-block align-top;
 
@@ -323,7 +330,7 @@ $score-size-mobile: 25px;
     }
     .name {
       @apply text-sm;
-      padding: 0.5rem;
+      padding: -0.5rem;
     }
     .score {
       width: $score-size-mobile;
@@ -347,6 +354,7 @@ $score-size-mobile: 25px;
       padding: 0.5rem;
       .name {
         @apply text-base;
+        padding: 0.5rem;
       }
       .score {
         width: $score-size;

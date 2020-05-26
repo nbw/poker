@@ -2,7 +2,7 @@
   <h1>
     Agile Poker
   </h1>
-  <div class="mx-auto p-8 max-w-md bg-white rounded-lg">
+  <div class="mx-2 md:mx-auto p-8 max-w-md bg-white rounded-lg">
     <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
       <div class="input-wrapper input-wrapper-blue">
         <%= text_input f, :room_name, placeholder: "room name", autofocus: true, class: "input" %>

@@ -75,9 +75,10 @@ section {
       border-color: #FBC02D;
     }
   }
-  width: $max-width;
+  width: 100%;
+  max-width: $max-width;
   margin: auto;
-  @apply py-8;
+  @apply py-8 px-2;
 }
 
 .container {
@@ -117,8 +118,8 @@ section {
     background-color: #5DADE2;
     border-color: #5DADE2;
     &:hover {
-    background-color: #2874A6;
-    border-color: #2874A6;
+      background-color: #2874A6;
+      border-color: #2874A6;
     }
   }
 }
@@ -387,3 +388,21 @@ $score-size-mobile: 20px;
     }
   }
 }
+
+#footer {
+  @apply block mx-auto my-4;
+  color: #555;
+  ul {
+    @apply list-none mx-auto text-center;
+    li {
+      @apply inline-block mx-8;
+      a {
+        color: #555;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+  }
+}
+

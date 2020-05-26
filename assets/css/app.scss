@@ -53,7 +53,7 @@ a {
 $max-width: 900px;
 
 #landing {
-  background-color: #0D47A1;
+  background-color: #033787;
   h1 {
     font-size: 5rem;
     @apply font-bold mb-4 text-white;
@@ -61,6 +61,10 @@ $max-width: 900px;
   .btn {
     @apply text-lg font-bold p-2;
   }
+
+  background-image: url("/images/poker-background.png");
+  background-repeat: repeat, repeat;
+  background-size: 250px;
 }
 
 section {
@@ -71,18 +75,20 @@ section {
       border-color: #FBC02D;
     }
   }
-  width: $max-width;
+  width: 100%;
+  max-width: $max-width;
   margin: auto;
-  @apply py-8;
+  @apply py-8 px-2;
 }
 
 .container {
   width: 100%;
   margin: auto;
-  @apply my-8;
+  @apply my-4;
 }
 @screen md {
   .container {
+    @apply my-8;
     width: $max-width;
   }
 }
@@ -112,21 +118,27 @@ section {
     background-color: #5DADE2;
     border-color: #5DADE2;
     &:hover {
-    background-color: #2874A6;
-    border-color: #2874A6;
+      background-color: #2874A6;
+      border-color: #2874A6;
     }
   }
 }
 
 .input {
-  @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
+  @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-0 py-1 px-2 leading-tight;
   &:focus {
     @apply outline-none;
   }
 }
 
+@screen md {
+  .input {
+    @apply mr-3;
+  }
+}
+
 .input-wrapper {
-  @apply flex items-center border-b border-b-2 py-2;
+  @apply flex items-center border-b border-b-2 py-2 mx-2;
   &.input-wrapper-teal { @apply border-teal-500; }
   &.input-wrapper-blue { @apply border-blue-500; }
 }
@@ -135,13 +147,14 @@ section {
 }
 
 #header {
-  @apply w-full h-32 p-4 pl-8 align-top;
+  @apply w-full p-0 pl-8 align-top;
   @apply border-b border-b-4;
 
+  height: 7rem;
   border-color: #EC7063;
 
   .title {
-    @apply text-4xl h-full;
+    @apply text-xl h-full;
     a {
       line-height: 6rem;
       display: block;
@@ -159,22 +172,30 @@ section {
 }
 @screen md {
   #header {
+    @apply p-4;
+    height: 8rem;
+    .title {
+      @apply text-2xl h-full;
+    }
     @apply w-7/12 inline-block;
   }
 }
 
 #controls {
-  @apply w-full inline-block h-32 p-4 pl-8 align-top;
+  @apply w-full inline-block h-auto py-2 px-4 pl-8 align-top;
   @apply border-b border-b-4;
 
   border-color: #1169C0;
-  .btn { @apply my-8 mx-4 text-lg; }
+  .btn { @apply my-2 mx-4 text-lg; }
 }
 @screen md {
-  #controls { @apply w-5/12; }
+  #controls { @apply w-5/12 py-4 h-32; }
+  .btn { @apply my-8; }
 }
 
 $card-size: 50px;
+$card-size-mobile-w: 25%;
+$card-size-mobile-h: 30%;
 $card-size-md: 75px;
 $card-color: #4FB6AC;
 $card-color-hover: #79c7c0;
@@ -197,16 +218,21 @@ $cards-bg: #8881E3;
     text-align: center;
   }
   .cards {
-    @apply p-8 m-auto absolute z-0;
+    @apply h-56 m-auto absolute z-0;
     left:0;
     right:0;
     top:0;
     bottom:0;
-    height: 150px;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.55rem;
+    padding-left: calc((100% - 400px)/3);
+    padding-right: calc((100% - 400px)/3);
 
     -webkit-box-shadow: rgba(50, 50, 50, 0.31) 0px 6px 8px 0px;
     box-shadow: rgba(50, 50, 50, 0.31) 0px 6px 8px 0px;
     max-width: $max-width;
+    width: 95%;
     background-color: white;
     border-radius: 5px;
   }
@@ -215,9 +241,9 @@ $cards-bg: #8881E3;
     @apply inline-block m-1 font-bold;
     background-color: white;
     border-radius: 5px;
-    width: $card-size;
-    height: $card-size;
-    line-height: $card-size;
+    width: $card-size-mobile-w;
+    height: $card-size-mobile-h;
+    line-height: $card-size-mobile-h;
     border: 1px solid $card-color;
     color: white;
     background-color: $card-color-hover;
@@ -234,8 +260,22 @@ $cards-bg: #8881E3;
   }
 }
 
+@screen md {
+  #player {
+    .cards {
+      @apply p-8;
+      height: 150px;
+      .card {
+        width: $card-size-md;
+        height: $card-size-md;
+        line-height: $card-size-md;
+      }
+    }
+  }
+}
+
 #results {
-  @apply w-full inline-block align-top;
+  @apply w-1/2 inline-block align-top;
   .title {
     @apply text-xl font-bold pb-2 pl-2 mb-2;
     border-bottom: 4px solid #F7B246;
@@ -246,7 +286,7 @@ $cards-bg: #8881E3;
       @apply text-right align-top font-bold;
     }
     td {
-      @apply px-4 py-2;
+      @apply px-2;
     }
   }
   table.scores {
@@ -264,12 +304,18 @@ $cards-bg: #8881E3;
 @screen md {
   #results {
     @apply w-5/12;
+    table.results {
+      td {
+        @apply px-4;
+      }
+    }
   }
 }
 
 $score-size: 50px;
+$score-size-mobile: 20px;
 #members {
-  @apply w-full inline-block align-top;
+  @apply w-1/2 inline-block align-top;
 
   .title {
     @apply text-xl font-bold pb-2 pl-2 mb-2;
@@ -278,19 +324,19 @@ $score-size: 50px;
   .member {
     @apply w-1/2 inline-block;
     margin: auto -0.25rem auto -0.25rem;
-    padding: 0.5rem;
+    padding: 0 0 0 0.5rem;
     &> * {
       vertical-align: middle;
       display: inline-block;
     }
     .name {
-      @apply text-base;
-      padding: 0.5rem;
+      @apply text-sm;
+      padding: -0.5rem;
     }
     .score {
-      width: $score-size;
-      height: $score-size;
-      line-height: $score-size;
+      width: $score-size-mobile;
+      height: $score-size-mobile;
+      line-height: $score-size-mobile;
       border: 1px solid black;
       font-weight: bold;
       text-align: center;
@@ -304,6 +350,19 @@ $score-size: 50px;
 @screen md {
   #members {
     @apply w-7/12 list-none;
+    .member {
+      @apply w-1/2;
+      padding: 0.5rem;
+      .name {
+        @apply text-base;
+        padding: 0.5rem;
+      }
+      .score {
+        width: $score-size;
+        height: $score-size;
+        line-height: $score-size;
+      }
+    }
   }
 }
 
@@ -329,3 +388,21 @@ $score-size: 50px;
     }
   }
 }
+
+#footer {
+  @apply block mx-auto my-4;
+  color: #555;
+  ul {
+    @apply list-none mx-auto text-center;
+    li {
+      @apply inline-block mx-8;
+      a {
+        color: #555;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+  }
+}
+

@@ -24,7 +24,7 @@ defmodule PokerWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/rooms", RoomController, only: [:new, :show]
+    resources "/rooms", RoomController, only: [:create, :new, :show]
   end
 
   # Other scopes may use custom stacks.

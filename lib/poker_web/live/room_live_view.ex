@@ -65,6 +65,10 @@ defmodule PokerWeb.RoomLiveView do
 
     update_user(%{score: num}, room_id, user_token)
 
+    if all_users_voted?(room_id) do
+      update_game_state(%{ finish: true }, room_id)
+    end
+
     {:noreply, socket}
   end
 
@@ -236,4 +240,9 @@ defmodule PokerWeb.RoomLiveView do
 
   defp topic(room_id), do: "room:#{room_id}"
   defp topic_state(room_id), do: "room:#{room_id}_state"
+
+  defp all_users_voted?(room_id) do
+    users_list(room_id)
+    |> Enum.all?(fn u -> u[:score] > -1 end)
+  end
 end

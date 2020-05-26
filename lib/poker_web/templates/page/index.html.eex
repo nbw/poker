@@ -1,15 +1,30 @@
-<div id="landing" class="text-center py-32">
+<div id="landing" class="text-center py-24">
   <h1>
     Agile Poker
   </h1>
-  <%= link "New Room", to: Routes.room_path(@conn, :new), class: "btn btn-red" %>
+  <div class="mx-2 md:mx-auto p-8 md:pt-0 max-w-md bg-white rounded-lg">
+    <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
+      <div class="input-wrapper input-wrapper-blue">
+        <%= text_input f, :room_name, placeholder: "room name", autofocus: true, class: "input" %>
+        <%= submit "Create Room", class: "btn btn-blue" %>
+      </div>
+    <% end %>
+  </div>
+  <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
+    <%= submit "Random Room", class: "btn btn-red block mt-16 mx-auto" %>
+  <% end %>
 </div>
 <section class="row">
   <div>
-    <h1>Lorem Ipsum</h1>
+    <h1>A Free Agile Poker Tool</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum sollicitudin consequat. Mauris mattis justo vel pretium rutrum. Nunc dictum in libero efficitur pulvinar. Pellentesque ullamcorper posuere est, nec condimentum libero maximus eu. Curabitur massa lectus, ultricies id auctor non, convallis fermentum ipsum.
+      A free agile app made with <a href="https://elixir-lang.org/">Elixir</a>'s <a href="https://www.phoenixframework.org/">Phoenix Framework</a>.
     </p>
   </div>
 </section>
-
+<footer id="footer">
+  <ul>
+    <li><a href="https://twitter.com/nathanwillson">@nathanwillson</a></li>
+    <li><a href="https://github.com/nbw/poker">code</a></li>
+  </ul>
+</footer>

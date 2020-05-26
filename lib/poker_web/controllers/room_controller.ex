@@ -8,9 +8,6 @@ defmodule PokerWeb.RoomController do
   alias Poker.Room.Auth
 
   def show(conn, %{"id"=> id}) do
-    # conn
-    # |> assign(:room_id, id)
-    # |> render("show.html")
     conn
     |> live_render(RoomLiveView, session:
       %{
@@ -21,8 +18,13 @@ defmodule PokerWeb.RoomController do
 
   def show(conn, _), do: redirect(conn, to: "/")
 
-  def new(conn, _params) do
-    conn
-    |> redirect(to: Routes.room_path(conn, :show, Auth.generate_token(12)))
+  def new(conn, _), do: render(conn, "new.html")
+
+  def create(conn, %{"room_name" => room_name}) do
+    redirect(conn, to: Routes.room_path(conn, :show, room_name))
+  end
+
+  def create(conn, p) do
+    redirect(conn, to: Routes.room_path(conn, :show, Auth.generate_token(12)))
   end
 end

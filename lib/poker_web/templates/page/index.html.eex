@@ -10,7 +10,7 @@
       </div>
     <% end %>
   </div>
-  <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
+  <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn _f -> %>
     <%= submit "Random Room", class: "btn btn-red block mt-16 mx-auto" %>
   <% end %>
 </div>

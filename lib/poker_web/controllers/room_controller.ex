@@ -24,7 +24,7 @@ defmodule PokerWeb.RoomController do
     redirect(conn, to: Routes.room_path(conn, :show, room_name))
   end
 
-  def create(conn, p) do
+  def create(conn, _) do
     redirect(conn, to: Routes.room_path(conn, :show, Auth.generate_token(12)))
   end
 end

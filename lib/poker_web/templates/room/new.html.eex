@@ -8,7 +8,7 @@
       </div>
     <% end %>
     <h1 class="mt-8 mb-2 text-center text-xl font-bold">Or Random Room</h1>
-    <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
+    <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn _f -> %>
       <%= submit "Random Room", class: "btn btn-red block m-auto" %>
     <% end %>
   </div>

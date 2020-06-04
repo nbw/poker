@@ -8,6 +8,7 @@ defmodule PokerWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :put_user_token
+    plug PokerWeb.Plugs.Locale
   end
 
   defp put_user_token(conn, _) do
@@ -24,7 +25,9 @@ defmodule PokerWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/rooms", RoomController, only: [:create, :new, :show]
+    resources "/rooms", RoomController, only: [:create, :show, :index]
+
+    get "/locale", LocaleController, :update
   end
 
   # Other scopes may use custom stacks.

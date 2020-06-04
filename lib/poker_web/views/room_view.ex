@@ -1,5 +1,6 @@
 defmodule PokerWeb.RoomView do
   use PokerWeb, :view
+  import Gettext, only: [with_locale: 2]
 
   @doc """
    A user is considered joined if they have a name

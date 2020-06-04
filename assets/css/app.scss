@@ -9,8 +9,8 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: 'Inter', sans-serif, Arial;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif, Arial;
 }
 
 a {
@@ -371,12 +371,14 @@ $score-size-mobile: 20px;
 
 #name {
   @apply fixed w-full top-0 left-0 h-full bg-white py-16 z-20;
+
   .form {
     @apply w-full max-w-md block m-auto;
   }
 
   .share-link {
     @apply text-center my-16 text-sm;
+      .title { @apply font-bold }
     h1 {
       @apply font-bold my-2 text-base;
     }
@@ -385,19 +387,32 @@ $score-size-mobile: 20px;
 @screen md {
   #name .share-link {
     @apply text-lg;
+
     h1 {
       @apply text-xl;
     }
   }
 }
 
+img.flag {
+  display: inline-block;
+  height: 20px;
+  margin-left: 3px;
+}
+
 #footer {
-  @apply block mx-auto my-4;
+  @apply block mx-auto my-4 text-center;
   color: #555;
+
   ul {
-    @apply list-none mx-auto text-center;
+    @apply inline-block list-none mx-auto align-top;
     li {
-      @apply inline-block mx-8;
+      @apply my-2 mx-8 text-left;
+
+      &.title {
+        @apply font-bold;
+      }
+
       a {
         color: #555;
         &:hover {

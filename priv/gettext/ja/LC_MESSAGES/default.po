@@ -1,0 +1,117 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: ja\n"
+"Plural-Forms: nplurals=1\n"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:22
+msgid "Finish"
+msgstr "完了"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:31
+msgid "Reset"
+msgstr "リセット"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:26
+msgid "Start"
+msgstr "開始"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:124
+msgid "Join"
+msgstr "参加"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:128
+msgid "Observe"
+msgstr "観察"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:95
+msgid "Card"
+msgstr "カード"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:96
+msgid "Count"
+msgstr "回数"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:57
+msgid "Members:"
+msgstr "参加者："
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:109
+msgid "No Votes"
+msgstr "投票は無し"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:87
+msgid "Scores:"
+msgstr "点数: "
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:81
+msgid "Votes:"
+msgstr "投票数"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:11
+msgid "title"
+msgstr "タイトル"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:77
+msgid "Results:"
+msgstr "結果"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:133
+msgid "Share this link:"
+msgstr "以下のリンクを共有して下さい"
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:9
+msgid "Create Room"
+msgstr "ルームを作成"
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:14
+msgid "Random Room"
+msgstr "ランダムルーム"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:122
+msgid "name"
+msgstr "名前"
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:8
+msgid "room name"
+msgstr "ルーム名"
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:31
+msgid "Code"
+msgstr "コード"
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:35
+msgid "Languages"
+msgstr "言語"
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:27
+msgid "Social"
+msgstr "ソーシャル"

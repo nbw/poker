@@ -10,7 +10,7 @@ defmodule PokerWeb.RoomLiveView do
     PokerWeb.RoomView.render("show.html", assigns)
   end
 
-  def mount(_, %{"room_id"=> room_id, "user_token"=> user_token}, socket) do
+  def mount(_, %{"room_id"=> room_id, "user_token"=> user_token, "locale" => locale}, socket) do
     # Subscribe to webhook to:
     # 1. send/broadcast messages
     # 2. receive presence_diff messages
@@ -25,7 +25,8 @@ defmodule PokerWeb.RoomLiveView do
         user_name: "",
         user_observer: false,
         user_token: user_token,
-        users: users_list(room_id)
+        users: users_list(room_id),
+        locale: locale
       )}
   end
 

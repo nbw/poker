@@ -12,11 +12,12 @@ defmodule PokerWeb.RoomController do
     |> live_render(RoomLiveView, session:
       %{
         "room_id" => id,
-        "user_token" => conn.assigns.user_token
+        "user_token" => conn.assigns.user_token,
+        "locale" => get_session(conn, :locale)
       })
   end
 
-  def show(conn, _), do: redirect(conn, to: "/")
+  def index(conn, _), do: redirect(conn, to: "/")
 
   def new(conn, _), do: render(conn, "new.html")
 
@@ -24,7 +25,7 @@ defmodule PokerWeb.RoomController do
     redirect(conn, to: Routes.room_path(conn, :show, room_name))
   end
 
-  def create(conn, p) do
+  def create(conn, _) do
     redirect(conn, to: Routes.room_path(conn, :show, Auth.generate_token(12)))
   end
 end

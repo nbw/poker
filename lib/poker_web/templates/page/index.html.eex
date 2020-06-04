@@ -5,26 +5,30 @@
   <div class="mx-2 md:mx-auto p-8 md:pt-0 max-w-md bg-white rounded-lg">
     <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
       <div class="input-wrapper input-wrapper-blue">
-        <%= text_input f, :room_name, placeholder: "room name", autofocus: true, class: "input" %>
-        <%= submit "Create Room", class: "btn btn-blue" %>
+        <%= text_input f, :room_name, placeholder: gettext("room name"), autofocus: true, class: "input" %>
+        <%= submit gettext("Create Room"), class: "btn btn-blue" %>
       </div>
     <% end %>
   </div>
-  <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn f -> %>
-    <%= submit "Random Room", class: "btn btn-red block mt-16 mx-auto" %>
+  <%= form_for @conn, Routes.room_path(@conn, :create), [class: "form"], fn _f -> %>
+    <%= submit gettext("Random Room"), class: "btn btn-red block mt-16 mx-auto" %>
   <% end %>
 </div>
-<section class="row">
-  <div>
-    <h1>A Free Agile Poker Tool</h1>
-    <p>
-      A free agile app made with <a href="https://elixir-lang.org/">Elixir</a>'s <a href="https://www.phoenixframework.org/">Phoenix Framework</a>.
-    </p>
-  </div>
-</section>
 <footer id="footer">
   <ul>
+    <li class="title"><%= gettext("Social") %></li>
     <li><a href="https://twitter.com/nathanwillson">@nathanwillson</a></li>
-    <li><a href="https://github.com/nbw/poker">code</a></li>
+  </ul>
+  <ul>
+    <li class="title"><%= gettext("Code") %></li>
+    <li><a href="https://github.com/nbw/poker">github</a></li>
+  </ul>
+  <ul>
+    <li class="title"><%= gettext("Languages") %></li>
+    <li><a href="/?locale=en">English</a></li>
+    <li><a href="/?locale=ja">日本語</a></li>
+  </ul>
+  <ul>
+    <li>Made in Japan <img class="flag" src="/images/flag.png"></li>
   </ul>
 </footer>

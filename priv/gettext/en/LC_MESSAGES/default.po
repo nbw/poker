@@ -12,72 +12,72 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:21
+#: lib/poker_web/templates/room/show.html.leex:22
 msgid "Finish"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:30
+#: lib/poker_web/templates/room/show.html.leex:31
 msgid "Reset"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:25
+#: lib/poker_web/templates/room/show.html.leex:26
 msgid "Start"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:123
+#: lib/poker_web/templates/room/show.html.leex:124
 msgid "Join"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:127
+#: lib/poker_web/templates/room/show.html.leex:128
 msgid "Observe"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:94
+#: lib/poker_web/templates/room/show.html.leex:95
 msgid "Card"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:95
+#: lib/poker_web/templates/room/show.html.leex:96
 msgid "Count"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:56
+#: lib/poker_web/templates/room/show.html.leex:57
 msgid "Members:"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:108
+#: lib/poker_web/templates/room/show.html.leex:109
 msgid "No Votes"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:86
+#: lib/poker_web/templates/room/show.html.leex:87
 msgid "Scores:"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:80
+#: lib/poker_web/templates/room/show.html.leex:81
 msgid "Votes:"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:10
+#: lib/poker_web/templates/room/show.html.leex:11
 msgid "title"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:76
+#: lib/poker_web/templates/room/show.html.leex:77
 msgid "Results:"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:132
+#: lib/poker_web/templates/room/show.html.leex:133
 msgid "Share this link:"
 msgstr ""
 
@@ -92,11 +92,26 @@ msgid "Random Room"
 msgstr ""
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:121
+#: lib/poker_web/templates/room/show.html.leex:122
 msgid "name"
 msgstr ""
 
 #, elixir-format
 #: lib/poker_web/templates/page/index.html.eex:8
 msgid "room name"
+msgstr ""
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:31
+msgid "Code"
+msgstr ""
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:35
+msgid "Languages"
+msgstr ""
+
+#, elixir-format
+#: lib/poker_web/templates/page/index.html.eex:27
+msgid "Social"
 msgstr ""

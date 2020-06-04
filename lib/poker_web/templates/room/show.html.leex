@@ -7,7 +7,7 @@
         </div>
       <% else %>
         <form class="form" phx-change="task_title" onsubmit="return false;">
-          <%= text_input :title, :query, placeholder: "title", "phx-debounce": "300", value: @state[:task_title], class: "input", autocomplete: "off" %>
+          <%= text_input :title, :query, placeholder: gettext("title"), "phx-debounce": "300", value: @state[:task_title], class: "input", autocomplete: "off" %>
         </form>
         <form class="form" phx-change="task_url" onsubmit="return false;">
           <%= text_input :url, :query, placeholder: "https://", "phx-debounce": "300", value: @state[:task_url], class: "input", autocomplete: "off" %>
@@ -17,12 +17,18 @@
       <div class="w-full text-center">
         <%= cond do %>
           <% (@state[:start] && !@state[:finish]) -> %>
-            <button class="btn btn-blue" phx-click="finish" >Finish</button>
+            <button class="btn btn-blue" phx-click="finish" >
+              <%= gettext "Finish" %>
+            </button>
           <% (!@state[:start] && !@state[:finish]) -> %>
-            <button class="btn btn-green" phx-click="start" >Start</button>
+            <button class="btn btn-green" phx-click="start" >
+              <%= gettext "Start" %>
+            </button>
           <% true -> %>
         <% end%>
-        <button class="btn btn-red" phx-click="reset" >Reset</button>
+        <button class="btn btn-red" phx-click="reset" >
+          <%= gettext "Reset" %>
+        </button>
       </div>
     </div>
   </div>
@@ -47,7 +53,7 @@
   </div>
   <div class="container">
     <div id="members">
-      <h1 class="title">Members (<%= Enum.count(@users) %>)</h1>
+      <h1 class="title"><%= gettext "Members:" %> (<%= Enum.count(@users) %>)</h1>
       <ul class="members">
         <%= for user <- sorted_users(@users) do %>
           <li class="member">
@@ -67,17 +73,17 @@
         <% end %>
       </ul>
       </div><div id="results">
-      <h1 class="title">Results</h1>
+      <h1 class="title"><%= gettext "Results:" %></h1>
       <table class="results">
         <tbody>
           <tr>
-            <td class="label">Votes:</td>
+            <td class="label"><%= gettext "Votes:" %></td>
             <%= if @state[:start] do %>
               <td><%= participants(@users) %></td>
             <% end %>
           </tr>
           <tr>
-            <td class="label">Scores:</td>
+            <td class="label"><%= gettext "Scores:" %></td>
             <td>
               <%= if @state[:finish] do %>
                 <% {max_score, results} = scores(@users) %>
@@ -85,8 +91,8 @@
                   <table class="scores">
                     <thead>
                       <tr>
-                        <th>Card</th>
-                        <th>Count</th>
+                        <th><%= gettext "Card" %></th>
+                        <th><%= gettext "Count" %></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -99,7 +105,7 @@
                     </tbody>
                   </table>
                 <% else %>
-                    No votes
+                  <%= gettext "No Votes" %>
                 <% end %>
               <% end %>
             </td>
@@ -112,14 +118,18 @@
 <div id="name" class="<%= if joined?(@current_user), do: 'hidden'%>">
   <form class="form" phx-change="name-input" onsubmit="return false;">
     <div class="input-wrapper input-wrapper-teal">
-      <%= text_input :name, :query, placeholder: "name", autofocus: true, "phx-debounce": "30", value: @user_name, class: "input" %>
-      <button class="btn btn-teal" phx-click="create_user" phx-value-obs="false" phx-value-name="<%= @user_name %>" >Join</button>
+      <%= text_input :name, :query, placeholder: gettext("name"), autofocus: true, "phx-debounce": "30", value: @user_name, class: "input" %>
+      <button class="btn btn-teal" phx-click="create_user" phx-value-obs="false" phx-value-name="<%= @user_name %>">
+        <%= gettext "Join" %>
+      </button>
       <button class="btn btn-red ml-2"  phx-click="create_user" phx-value-obs="true"
-       phx-value-name="<%= @user_name %>" >Observe</button>
+                                                                phx-value-name="<%= @user_name %>" >
+              <%= gettext "Observe" %>
+      </button>
     </div>
   </form>
   <div class="share-link">
-    <h1>Share this link:</h1>
+    <h1><% gettext "Share this link:" %></h1>
     <% url = PokerWeb.Router.Helpers.room_url(PokerWeb.Endpoint, :show, @room_id) %>
     <%= link url, to: url %>
     <div>

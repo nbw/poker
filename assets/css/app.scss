@@ -143,9 +143,6 @@ section {
   &.input-wrapper-blue { @apply border-blue-500; }
 }
 
-#room {
-}
-
 #header {
   @apply w-full p-0 pl-8 align-top;
   @apply border-b border-b-4;
@@ -344,6 +341,9 @@ $score-size-mobile: 20px;
         background-color: #EC7063;
         color: white;
       }
+      &.observer {
+        background-color: blue;
+      }
     }
   }
 }
@@ -370,7 +370,7 @@ $score-size-mobile: 20px;
 #name {
   @apply fixed w-full top-0 left-0 h-full bg-white py-16 z-20;
   .form {
-    @apply w-full max-w-sm block m-auto;
+    @apply w-full max-w-md block m-auto;
   }
 
   .share-link {

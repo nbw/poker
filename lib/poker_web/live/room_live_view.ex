@@ -23,12 +23,17 @@ defmodule PokerWeb.RoomLiveView do
         current_user: nil,
         room_id: room_id,
         user_name: "",
+        user_observer: false,
         user_token: user_token,
         users: users_list(room_id)
       )}
   end
 
   # Channels/Presence: handle "reset" message
+  def handle_info(%{event: "reset"}, %{assigns: %{user_observer: false}} = socket) do
+    {:noreply, socket}
+  end
+
   def handle_info(%{event: "reset"},
     %{assigns: %{room_id: room_id, user_token: user_token, user_name: name}} = socket)
   do
@@ -57,6 +62,7 @@ defmodule PokerWeb.RoomLiveView do
   end
 
   # LiveView: Handle card selection
+  def handle_event("card", _, %{assigns: %{current_user: %{observer: true}}} = socket), do: {:noreply, socket}
   def handle_event("card",
     %{"num" => num},
     %{assigns: %{room_id: room_id, user_token: user_token}} = socket)
@@ -128,10 +134,10 @@ defmodule PokerWeb.RoomLiveView do
   # LiveView: Join button
   # - Do nothing if name is blank
   def handle_event("create_user", %{"name" => ""}, socket), do: {:noreply, socket}
-  def handle_event("create_user", _,
+  def handle_event("create_user", %{"obs" => obs},
     %{assigns: %{room_id: room_id, user_token: user_token, user_name: name}} = socket)
   do
-    user = create_user(user_token, name)
+    user = create_user(user_token, name, observe(obs))
 
     Presence.track(
       self(),
@@ -158,10 +164,11 @@ defmodule PokerWeb.RoomLiveView do
   end
 
   # Default user
-  defp create_user(user_token, name) do
+  defp create_user(user_token, name, observer \\ true) do
     %{
       id: user_token,
       name: name,
+      observer: observer,
       score: -1
     }
   end
@@ -243,6 +250,10 @@ defmodule PokerWeb.RoomLiveView do
 
   defp all_users_voted?(room_id) do
     users_list(room_id)
+    |> Enum.reject(fn u -> u[:observer] end)
     |> Enum.all?(fn u -> u[:score] > -1 end)
   end
+
+  def observe("true"), do: true
+  def observe("false"), do: false
 end

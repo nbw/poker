@@ -51,13 +51,17 @@
       <ul class="members">
         <%= for user <- @users do %>
           <li class="member">
-            <div class="score <%= if (user.score >= 0), do: 'active'%>">
-              <%= if @state[:finish] && user.score >= 0 do %>
-                <%= user.score %>
-              <% end %>
-            </div>
+            <%= if user.observer do %>
+              <div class="score observer"></div>
+            <% else %>
+              <div class="score <%= if (user.score >= 0), do: 'active'%>">
+                <%= if @state[:finish] && user.score >= 0 do %>
+                  <%= user.score %>
+                <% end %>
+              </div>
+            <% end %>
             <label class="name">
-              <%= user.name %>
+              <%= user.name %> <%= if (user.observer), do: '(obs)'%>
             </label>
           </li>
         <% end %>
@@ -109,7 +113,9 @@
   <form class="form" phx-change="name-input" onsubmit="return false;">
     <div class="input-wrapper input-wrapper-teal">
       <%= text_input :name, :query, placeholder: "name", autofocus: true, "phx-debounce": "30", value: @user_name, class: "input" %>
-      <button class="btn btn-teal" phx-click="create_user" phx-value-name="<%= @user_name %>" >Join</button>
+      <button class="btn btn-teal" phx-click="create_user" phx-value-obs="false" phx-value-name="<%= @user_name %>" >Join</button>
+      <button class="btn btn-red ml-2"  phx-click="create_user" phx-value-obs="true"
+       phx-value-name="<%= @user_name %>" >Observe</button>
     </div>
   </form>
   <div class="share-link">

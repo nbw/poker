@@ -43,4 +43,8 @@ defmodule PokerWeb.RoomView do
     total = Enum.count(users, fn u -> u[:observer] end)
     "#{answered} / #{total}"
   end
+
+  def sorted_users(users) do
+    Enum.sort(users, &(&2[:observer] >= &1[:observer]))
+  end
 end

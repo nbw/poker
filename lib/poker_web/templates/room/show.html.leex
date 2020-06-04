@@ -49,7 +49,7 @@
     <div id="members">
       <h1 class="title">Members (<%= Enum.count(@users) %>)</h1>
       <ul class="members">
-        <%= for user <- @users do %>
+        <%= for user <- sorted_users(@users) do %>
           <li class="member">
             <%= if user.observer do %>
               <div class="score observer"></div>

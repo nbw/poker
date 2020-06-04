@@ -342,7 +342,9 @@ $score-size-mobile: 20px;
         color: white;
       }
       &.observer {
-        background-color: blue;
+        border-radius: 100px;
+        width: $score-size-mobile;
+        height: $score-size-mobile;
       }
     }
   }

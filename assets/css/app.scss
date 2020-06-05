@@ -378,9 +378,25 @@ $score-size-mobile: 20px;
 
   .share-link {
     @apply text-center my-16 text-sm;
-      .title { @apply font-bold }
+
+    .title { @apply font-bold }
+
     h1 {
       @apply font-bold my-2 text-base;
+    }
+  }
+
+  .lang {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: calc(100vh - 50px);
+    text-align: center;
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+      }
     }
   }
 }

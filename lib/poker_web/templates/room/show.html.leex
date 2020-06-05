@@ -129,10 +129,17 @@
         </button>
       </div>
     </form>
+    <% url = PokerWeb.Router.Helpers.room_url(PokerWeb.Endpoint, :show, @room_id) %>
     <div class="share-link">
       <h1><%= gettext "Share this link:" %></h1>
-      <% url = PokerWeb.Router.Helpers.room_url(PokerWeb.Endpoint, :show, @room_id) %>
       <%= link url, to: url %>
+    </div>
+    <div class="lang">
+      <ul>
+        <li><a href=<%= "#{url}/?locale=en"%>>English</a></li>
+        <li>・</li>
+        <li><a href=<%= "#{url}/?locale=ja"%>>日本語</a></li>
+      </ul>
     </div>
   </div>
 <% end) %>

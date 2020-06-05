@@ -3,7 +3,7 @@ defmodule PokerWeb.RoomLiveView do
 
   alias PokerWeb.Presence
 
-  @scores [1,2,3,4,5,10,20,50,100]
+  @scores [1,2,3,4,5,10]
   def scores, do: @scores
 
   def render(assigns) do

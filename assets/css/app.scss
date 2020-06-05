@@ -151,7 +151,7 @@ section {
   border-color: #EC7063;
 
   .title {
-    @apply text-xl h-full;
+    @apply text-lg h-full;
     a {
       line-height: 6rem;
       display: block;
@@ -162,7 +162,7 @@ section {
   .form {
     @apply w-full block h-12;
     input {
-      @apply h-12 text-xl;
+      @apply h-12 text-lg;
       &:focus { border-bottom: solid 1px #EC7063; }
     }
   }
@@ -192,8 +192,8 @@ section {
 
 $card-size: 50px;
 $card-size-mobile-w: 25%;
-$card-size-mobile-h: 30%;
-$card-size-md: 75px;
+$card-size-mobile-h: 40%;
+$card-size-md: 100px;
 $card-color: #4FB6AC;
 $card-color-hover: #79c7c0;
 $card-color-active: #4FB6AC;
@@ -235,7 +235,8 @@ $cards-bg: #8881E3;
   }
 
   .card {
-    @apply inline-block m-1 font-bold;
+    @apply inline-block font-bold;
+    margin: 0.65rem;
     background-color: white;
     border-radius: 5px;
     width: $card-size-mobile-w;
@@ -260,12 +261,14 @@ $cards-bg: #8881E3;
 @screen md {
   #player {
     .cards {
-      @apply p-8;
+      padding: 1.40rem;
       height: 150px;
       .card {
         width: $card-size-md;
         height: $card-size-md;
         line-height: $card-size-md;
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
       }
     }
   }
@@ -390,7 +393,7 @@ $score-size-mobile: 20px;
     position: absolute;
     height: 50px;
     width: 100%;
-    top: calc(100vh - 50px);
+    top: calc(100vh - 100px);
     text-align: center;
     ul {
       display: inline-block;
@@ -401,11 +404,16 @@ $score-size-mobile: 20px;
   }
 }
 @screen md {
-  #name .share-link {
-    @apply text-lg;
+  #name {
+    .lang {
+      top: calc(100vh - 50px);
+    }
+    .share-link {
+      @apply text-lg;
 
-    h1 {
-      @apply text-xl;
+      h1 {
+        @apply text-xl;
+      }
     }
   }
 }

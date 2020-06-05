@@ -31,7 +31,9 @@ defmodule PokerWeb.RoomLiveView do
   end
 
   # Channels/Presence: handle "reset" message
-  def handle_info(%{event: "reset"}, %{assigns: %{user_observer: false}} = socket) do
+  def handle_info(%{event: "reset"}, %{assigns: %{room_id: room_id, user_observer: true}} = socket) do
+    update_game_state(create_game_state(room_id), room_id)
+
     {:noreply, socket}
   end
 

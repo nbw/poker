@@ -1,5 +1,10 @@
 defmodule PokerWeb.Plugs.Locale do
   import Plug.Conn
+  @moduledoc """
+  Detects and sets locale
+
+  Reference: https://phrase.com/blog/posts/set-and-manage-locale-data-in-your-phoenix-l10n-project/
+  """
 
   @locales Gettext.known_locales(PokerWeb.Gettext)
 
@@ -19,13 +24,13 @@ defmodule PokerWeb.Plugs.Locale do
     locale = case get_session(conn, :locale) ||
       locale_from_cookies(conn) ||
         locale_from_header(conn) do
-      nil -> put_session(conn, :locale, Gettext.get_locale())
+      nil -> Gettext.get_locale()
       loc -> loc
     end
 
     Gettext.put_locale(PokerWeb.Gettext, locale)
 
-    conn
+    put_session(conn, :locale, locale)
   end
 
   defp locale_from_cookies(conn) do
@@ -37,6 +42,7 @@ defmodule PokerWeb.Plugs.Locale do
     |> extract_accept_language
     |> Enum.find(nil, fn accepted_locale -> Enum.member?(@locales, accepted_locale) end)
   end
+
   def extract_accept_language(conn) do
     case Plug.Conn.get_req_header(conn, "accept-language") do
       [value | _] ->
@@ -51,6 +57,7 @@ defmodule PokerWeb.Plugs.Locale do
         []
     end
   end
+
   defp parse_language_option(string) do
     captures = Regex.named_captures(~r/^\s?(?<tag>[\w\-]+)(?:;q=(?<quality>[\d\.]+))?$/i, string)
     quality = case Float.parse(captures["quality"] || "1.0") do
@@ -59,6 +66,7 @@ defmodule PokerWeb.Plugs.Locale do
     end
     %{tag: captures["tag"], quality: quality}
   end
+
   defp ensure_language_fallbacks(tags) do
     Enum.flat_map tags, fn tag ->
       [language | _] = String.split(tag, "-")

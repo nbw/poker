@@ -167,7 +167,7 @@ defmodule PokerWeb.RoomLiveView do
   end
 
   # Default user
-  defp create_user(user_token, name, observer \\ true) do
+  defp create_user(user_token, name, observer \\ false) do
     %{
       id: user_token,
       name: name,

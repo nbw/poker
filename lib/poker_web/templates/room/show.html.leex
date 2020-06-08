@@ -4,7 +4,7 @@
       <div id="header">
         <%= if @state[:start] do %>
           <div class="title">
-            <a href="<%= @state[:task_url] %>" target="_blank"><%= @state[:task_title] %></a>
+            <a href="<%= @state[:task_url] %>" target="_blank"><%= title(@state[:task_title], @state[:task_url]) %></a>
           </div>
         <% else %>
           <form class="form" phx-change="task_title" onsubmit="return false;">

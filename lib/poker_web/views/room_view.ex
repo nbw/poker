@@ -48,4 +48,13 @@ defmodule PokerWeb.RoomView do
   def sorted_users(users) do
     Enum.sort(users, &(&2[:observer] >= &1[:observer]))
   end
+
+  def title(task_title, task_url) do
+    case task_title do
+      "" ->
+        Regex.split(~r{/}, task_url)
+        |> List.last
+      t -> t
+    end
+  end
 end

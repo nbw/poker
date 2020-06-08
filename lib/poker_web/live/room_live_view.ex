@@ -38,10 +38,10 @@ defmodule PokerWeb.RoomLiveView do
   end
 
   def handle_info(%{event: "reset"},
-    %{assigns: %{room_id: room_id, user_token: user_token, user_name: name}} = socket)
+    %{assigns: %{room_id: room_id, user_token: user_token, user_name: name, user_observer: obs}} = socket)
   do
     # Reset user to defaults
-    user = create_user(user_token, name)
+    user = create_user(user_token, name, obs)
            |> update_user(room_id, user_token)
 
     # Reset game state
@@ -149,7 +149,7 @@ defmodule PokerWeb.RoomLiveView do
       user
     )
 
-    {:noreply, assign(socket, current_user: user)}
+    {:noreply, assign(socket, current_user: user, user_observer: observe(obs))}
   end
 
   defp users_list(room_id) do

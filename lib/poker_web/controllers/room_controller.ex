@@ -22,10 +22,16 @@ defmodule PokerWeb.RoomController do
   def new(conn, _), do: render(conn, "new.html")
 
   def create(conn, %{"room_name" => room_name}) do
-    redirect(conn, to: Routes.room_path(conn, :show, room_name))
+    redirect(conn, to: Routes.room_path(conn, :show, underscore(room_name)))
   end
 
   def create(conn, _) do
     redirect(conn, to: Routes.room_path(conn, :show, Auth.generate_token(12)))
+  end
+
+  defp underscore(s) do
+    s
+    |> String.trim()
+    |> String.replace(~r/\s+/, "_")
   end
 end

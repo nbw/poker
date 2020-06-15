@@ -258,7 +258,7 @@ $cards-bg: #8881E3;
   }
 }
 
-@screen md {
+@media only screen and (min-width: 850px) {
   #player {
     .cards {
       padding: 1.0rem;
@@ -370,6 +370,7 @@ $score-size-mobile: 20px;
     }
   }
 }
+
 
 
 #name {

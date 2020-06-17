@@ -152,10 +152,10 @@ section {
 
   .title {
     @apply text-lg h-full;
-    a {
-      line-height: 6rem;
-      display: block;
-      vertical-align:middle;
+    display: table;
+    * {
+      display: table-cell;
+      vertical-align: middle;
     }
   }
 

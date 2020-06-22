@@ -171,6 +171,7 @@ section {
   #header {
     @apply p-4;
     height: 8rem;
+    word-break: break-all;
     .title {
       @apply text-2xl h-full;
     }

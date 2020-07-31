@@ -41,7 +41,7 @@ defmodule PokerWeb.RoomView do
   """
   def participants(users) do
     answered = Enum.count(users, fn u -> u[:score] >= 0 end)
-    total = Enum.count(users, fn u -> u[:observer] end)
+    total = Enum.count(users, fn u -> u[:observer] == false end)
     "#{answered} / #{total}"
   end
 

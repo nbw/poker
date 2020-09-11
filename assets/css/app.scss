@@ -51,6 +51,7 @@ a {
 
 /* Custom CSS */
 $max-width: 900px;
+$card-max-width: 1060px;
 
 #landing {
   background-color: #033787;
@@ -192,7 +193,7 @@ section {
 }
 
 $card-size: 50px;
-$card-size-mobile-w: 25%;
+$card-size-mobile-w: 20%;
 $card-size-mobile-h: 40%;
 $card-size-md: 100px;
 $card-color: #4FB6AC;
@@ -224,12 +225,10 @@ $cards-bg: #8881E3;
 
     padding-top: 0.5rem;
     padding-bottom: 0.55rem;
-    padding-left: calc((100% - 400px)/3);
-    padding-right: calc((100% - 400px)/3);
 
     -webkit-box-shadow: rgba(50, 50, 50, 0.31) 0px 6px 8px 0px;
     box-shadow: rgba(50, 50, 50, 0.31) 0px 6px 8px 0px;
-    max-width: $max-width;
+    max-width: $card-max-width;
     width: 95%;
     background-color: white;
     border-radius: 5px;
@@ -237,7 +236,7 @@ $cards-bg: #8881E3;
 
   .card {
     @apply inline-block font-bold;
-    margin: 0.65rem;
+    margin: 0.60rem;
     background-color: white;
     border-radius: 5px;
     width: $card-size-mobile-w;
@@ -265,11 +264,21 @@ $cards-bg: #8881E3;
       padding: 1.0rem;
       height: 150px;
       .card {
-        width: $card-size-md;
+        width: 9%;
         height: $card-size-md;
         line-height: $card-size-md;
-        margin-left: 0.75rem;
-        margin-right: 0.75rem;
+        margin-left: 0.65rem;
+        margin-right: 0.65rem;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1085px) {
+  #player {
+    .cards {
+      .card {
+        width: $card-size-md;
+        height: $card-size-md;
       }
     }
   }

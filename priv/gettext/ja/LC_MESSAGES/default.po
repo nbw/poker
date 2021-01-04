@@ -27,12 +27,12 @@ msgid "Start"
 msgstr "開始"
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:124
+#: lib/poker_web/templates/room/show.html.leex:130
 msgid "Join"
 msgstr "参加"
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:128
+#: lib/poker_web/templates/room/show.html.leex:134
 msgid "Observe"
 msgstr "観察"
 
@@ -77,7 +77,7 @@ msgid "Results:"
 msgstr "結果"
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:133
+#: lib/poker_web/templates/room/show.html.leex:140
 msgid "Share this link:"
 msgstr "以下のリンクを共有して下さい"
 
@@ -92,7 +92,7 @@ msgid "Random Room"
 msgstr "ランダムルーム"
 
 #, elixir-format
-#: lib/poker_web/templates/room/show.html.leex:122
+#: lib/poker_web/templates/room/show.html.leex:128
 msgid "name"
 msgstr "名前"
 
@@ -102,16 +102,21 @@ msgid "room name"
 msgstr "ルーム名"
 
 #, elixir-format
-#: lib/poker_web/templates/page/index.html.eex:31
+#: lib/poker_web/templates/page/index.html.eex:23
 msgid "Code"
 msgstr "コード"
 
 #, elixir-format
-#: lib/poker_web/templates/page/index.html.eex:35
+#: lib/poker_web/templates/page/index.html.eex:27
 msgid "Languages"
 msgstr "言語"
 
 #, elixir-format
-#: lib/poker_web/templates/page/index.html.eex:27
+#: lib/poker_web/templates/page/index.html.eex:19
 msgid "Social"
 msgstr "ソーシャル"
+
+#, elixir-format
+#: lib/poker_web/templates/room/show.html.leex:115
+msgid "Lock:"
+msgstr "編集ロック"

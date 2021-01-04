@@ -43,10 +43,10 @@
             <button class="card <%= if (@current_user[:score] == val), do: 'active'%>"
               <%= if @state[:start] do %>
                 phx-click="card"
-        phx-value-num="<%= val %>"
-      <% end %>
-    >
-    <%= val %>
+                phx-value-num="<%= val %>"
+              <% end %>
+                >
+                <%= val %>
             </button>
           <% end %>
         </div>
@@ -111,6 +111,12 @@
                 <% end %>
               </td>
             </tr>
+            <tr>
+              <td class="label"><%= gettext "Lock:" %></td>
+              <td>
+                <%= checkbox :edit_lock, :done, phx_click: "edit_lock", value: @state[:edit_lock] %>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -124,8 +130,8 @@
           <%= gettext "Join" %>
         </button>
         <button class="btn btn-red ml-2"  phx-click="create_user" phx-value-obs="true"
-                                                              phx-value-name="<%= @user_name %>" >
-                                                              <%= gettext "Observe" %>
+                                                                  phx-value-name="<%= @user_name %>" >
+                                                                  <%= gettext "Observe" %>
         </button>
       </div>
     </form>

@@ -66,6 +66,7 @@ defmodule PokerWeb.RoomLiveView do
 
   # LiveView: Handle card selection
   def handle_event("card", _, %{assigns: %{current_user: %{observer: true}}} = socket), do: {:noreply, socket}
+  def handle_event("card", _, %{assigns: %{state: %{edit_lock: true, finish: true}}} = socket), do: {:noreply, socket}
   def handle_event("card",
     %{"num" => num},
     %{assigns: %{room_id: room_id, user_token: user_token}} = socket)
@@ -129,6 +130,19 @@ defmodule PokerWeb.RoomLiveView do
     {:noreply, socket}
   end
 
+  def handle_event("edit_lock", _,
+    %{
+      assigns: %{
+        room_id: room_id,
+        state: %{ edit_lock: edit_lock }
+      }
+    } = socket)
+  do
+    update_game_state(%{ edit_lock: !edit_lock }, room_id)
+
+    {:noreply, socket}
+  end
+
   # LiveView: User's name input
   def handle_event("name-input", %{"name" => %{"query" => query}}, socket) do
     {:noreply, assign(socket, user_name: query)}
@@ -184,6 +198,7 @@ defmodule PokerWeb.RoomLiveView do
       finish: false,
       task_title: "",
       task_url: "",
+      edit_lock: true
     }
   end
 

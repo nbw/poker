@@ -61,14 +61,4 @@ defmodule PokerWeb.RoomView do
 
     link task_title, to: task_url, target: "_blank"
   end
-  def title(task_title, task_url) do
-    task_title = case task_title do
-      "" ->
-        Regex.split(~r{/}, task_url)
-        |> List.last
-      t -> t
-    end
-
-    link task_title, to: task_url, target: "_blank"
-  end
 end

@@ -4,12 +4,8 @@ defmodule PokerWeb.RoomChannel do
   alias PokerWeb.Presence #Added alias
 
   def join("room:" <> _uid, _message, socket) do
-    send(self, :after_join)
+    send(self(), :after_join)
     {:ok, socket}
-  end
-
-  def join("room:" <> _private_room_id, _params, _socket) do
-    {:error, %{reason: "unauthorized"}}
   end
 
   def handle_in("message:new", payload, socket) do

@@ -121,6 +121,7 @@
         </table>
       </div>
     </div>
+    <div id="heartbeat"><%= @heartbeat %></div>
   </div>
   <div id="name" class="<%= if joined?(@current_user), do: 'hidden'%>">
     <form class="form" phx-change="name-input" onsubmit="return false;">

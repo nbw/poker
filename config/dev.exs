@@ -1,11 +1,18 @@
 use Mix.Config
 
+db_hostname = fn ->
+  case System.get_env("DB_HOSTNAME") do
+    nil -> "localhost"
+    _ -> System.get_env("DB_HOSTNAME")
+  end
+end
+
 # Configure your database
 config :poker, Poker.Repo,
   username: "postgres",
   password: "postgres",
   database: "poker_dev",
-  hostname: "localhost",
+  hostname: db_hostname.(),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

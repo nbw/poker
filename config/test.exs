@@ -1,5 +1,12 @@
 use Mix.Config
 
+db_hostname = fn ->
+  case System.get_env("DB_HOSTNAME") do
+    nil -> "localhost"
+    _ -> System.get_env("DB_HOSTNAME")
+  end
+end
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used
@@ -9,7 +16,7 @@ config :poker, Poker.Repo,
   username: "postgres",
   password: "postgres",
   database: "poker_test#{System.get_env("MIX_TEST_PARTITION")}",
-  hostname: "localhost",
+  hostname: db_hostname.(),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

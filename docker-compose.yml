@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - '4000:4000'
+    command: mix phx.server
+    environment:
+      - MIX_ENV=dev
+      - PORT=4000
+      - DB_HOSTNAME=db
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
+    driver: local

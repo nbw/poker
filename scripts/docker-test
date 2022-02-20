@@ -1,0 +1,7 @@
+#!/bin/sh
+
+docker-compose up -d db
+
+docker-compose run --rm -e "MIX_ENV=test" web bash -c "mix test"
+
+docker-compose stop db
